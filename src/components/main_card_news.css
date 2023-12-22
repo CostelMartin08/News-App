@@ -1,0 +1,30 @@
+
+.font-mod-main {
+   text-decoration: none;
+   color: black;
+    font-size: 28px;
+    font-family: 'Playfair Display', serif;
+}
+
+.img-set{
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card__span__main{
+    cursor: pointer;
+    font-size: 11px;
+    position: absolute;
+    background-color: white;
+    top: 10px;
+    left: 20px;
+    padding: 3px 7px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease-in;
+    user-select: none;
+}
+
+.card__span__main:hover {
+    transform: translateX(5px);
+}
