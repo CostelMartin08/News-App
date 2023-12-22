@@ -5,7 +5,7 @@ const NewsContext = createContext();
 const NewsProvider = ({ children }) => {
 
     const [data, setData] = useState(null);
-
+//I know, it's the public key
     const fetchData = async (searchTerm) => {
 
         try {
