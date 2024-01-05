@@ -1,11 +1,15 @@
 import { createContext, useContext, useState } from 'react';
-
 const NewsContext = createContext();
 
 const NewsProvider = ({ children }) => {
 
-    const [data, setData] = useState(null);
-//I know, it's the public key
+
+    const [lastSearchTerm, setLastSearchTerm] = useState([])
+    const [data, setData] = useState();
+
+    //I know, it's the public key
+
+    
     const fetchData = async (searchTerm) => {
 
         try {
@@ -19,14 +23,17 @@ const NewsProvider = ({ children }) => {
 
             const jsonData = await response.json();
             setData(jsonData);
+            setLastSearchTerm([searchTerm, ...lastSearchTerm])
         } catch (error) {
             console.error('Error fetching data:', error.message);
         }
 
     };
 
+
+
     return (
-        <NewsContext.Provider value={{ data, fetchData }}>
+        <NewsContext.Provider value={{ data, fetchData, lastSearchTerm }}>
             {children}
         </NewsContext.Provider>
     );

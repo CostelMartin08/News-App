@@ -7,6 +7,7 @@ import SearchPage from "./pages/SearchPage";
 const App = () => {
 
     return (
+
         <NewsProvider>
             <Router>
                 <Routes>
@@ -15,6 +16,7 @@ const App = () => {
                 </Routes>
             </Router>
         </NewsProvider>
+
     );
 }
 

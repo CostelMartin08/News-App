@@ -27,7 +27,7 @@
     background: #a62a00;
     background: linear-gradient(315deg, #ff7d7d, #a62a00);
     width: 100%;
-   
+
 }
 
 .card__img img {
@@ -105,7 +105,7 @@
     border: 0;
     height: 50px;
     border-radius: 0px;
-    text-indent: 6dvw;
+    text-indent: 7dvw;
 }
 
 .input-stl:focus-visible {
@@ -139,17 +139,23 @@
     font-family: 'Playfair Display', serif;
 }
 
+
 .nav-scroller .nav {
     display: flex;
     flex-wrap: nowrap;
     margin-top: -1px;
-    overflow: hidden;
+    overflow: auto;
     text-align: center;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
 
 }
 
+.nav-item {
+    margin-top: 7px;
+    cursor: pointer;
+    margin-bottom: 7px;
+}
 
 @media only screen and (min-width: 450px) {
 
@@ -186,7 +192,7 @@
 
     .card__img {
 
-      width: 100%;
+        width: 100%;
         height: 220px;
     }
 

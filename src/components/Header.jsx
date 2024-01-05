@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNewsContext } from "../NewsContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Header = () => {
 
-    const { fetchData } = useNewsContext();
+    const { fetchData, lastSearchTerm } = useNewsContext();
     const [displayBar, setDisplayBar] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-
+    const { param } = useParams();
     const navigate = useNavigate();
 
 
- {/*   useEffect(() => {
+    {/*   useEffect(() => {
 
         fetchData('WorldNews');
 
@@ -19,7 +19,9 @@ const Header = () => {
 
 */}
 
+
     const search = (param) => {
+        navigate(`/${param}`);
         fetchData(param);
     }
 
@@ -58,7 +60,6 @@ const Header = () => {
                             aria-label="Search">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
                         </a>
-                        <a className="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
                     </div>
                 </div>
             </header>
@@ -66,19 +67,19 @@ const Header = () => {
 
 
 
-            <div className="nav-scroller py-1 mb-3 border-bottom">
+            <div className="nav-scroller py-1 mb-2 border-bottom">
                 <nav className="nav nav-underline justify-content-between">
-                    <a onClick={() => search('world')} className="nav-item nav-link link-body-emphasis active" href="#">World</a>
-                    <a onClick={() => search('US')} className="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
-                    <a onClick={() => search('technology')} className="nav-item nav-link link-body-emphasis" href="#">Technology</a>
-                    <a onClick={() => search('design')} className="nav-item nav-link link-body-emphasis" href="#">Design</a>
-                    <a onClick={() => search('culture')} className="nav-item nav-link link-body-emphasis" href="#">Culture</a>
-                    <a onClick={() => search('politics')} className="nav-item nav-link link-body-emphasis" href="#">Politics</a>
-                    <a onClick={() => search('opinion')} className="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
-                    <a onClick={() => search('science')} className="nav-item nav-link link-body-emphasis" href="#">Science</a>
-                    <a onClick={() => search('health')} className="nav-item nav-link link-body-emphasis" href="#">Health</a>
-                    <a onClick={() => search('style')} className="nav-item nav-link link-body-emphasis" href="#">Style</a>
-                    <a onClick={() => search('travel')} className="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+                    <a onClick={() => search('world')} className="nav-item nav-link link-body-emphasis">World</a>
+                    <a onClick={() => search('US')} className="nav-item nav-link link-body-emphasis">U.S.</a>
+                    <a onClick={() => search('technology')} className="nav-item nav-link link-body-emphasis">Technology</a>
+                    <a onClick={() => search('design')} className="nav-item nav-link link-body-emphasis" >Design</a>
+                    <a onClick={() => search('culture')} className="nav-item nav-link link-body-emphasis">Culture</a>
+                    <a onClick={() => search('politics')} className="nav-item nav-link link-body-emphasis">Politics</a>
+                    <a onClick={() => search('opinion')} className="nav-item nav-link link-body-emphasis">Opinion</a>
+                    <a onClick={() => search('science')} className="nav-item nav-link link-body-emphasis">Science</a>
+                    <a onClick={() => search('health')} className="nav-item nav-link link-body-emphasis">Health</a>
+                    <a onClick={() => search('style')} className="nav-item nav-link link-body-emphasis">Style</a>
+                    <a onClick={() => search('travel')} className="nav-item nav-link link-body-emphasis">Travel</a>
                 </nav>
             </div>
 
@@ -94,14 +95,14 @@ const Header = () => {
                         <input
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder="Caută după cuvinte cheie"
+                            placeholder="Search by keywords"
                             className="input-stl w-100"
                             type="text"></input>
                     </div>
 
                     <button
                         type="submit"
-                        className="input-btn-stl">Caută
+                        className="input-btn-stl">Search
                     </button>
 
                 </form>

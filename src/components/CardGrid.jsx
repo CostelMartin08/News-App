@@ -9,14 +9,14 @@ const CardGrid = () => {
   const { data } = useNewsContext();
   const [value, setValue] = useState(dataMock);
 
-
- {/* useEffect(() => {
+  useEffect(() => {
     if (data) {
+
       setValue(data);
+
     }
   }, [data]);
 
-*/}
 
   const news = value.articles;
 
