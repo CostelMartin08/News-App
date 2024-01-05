@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from "./pages/MainPage";
 import { NewsProvider } from "./NewsContext";
 import SearchPage from "./pages/SearchPage";
@@ -10,7 +10,7 @@ const App = () => {
 
         <NewsProvider>
             <Router>
-                <Routes>
+                <Routes  basename="/news-app">
                     <Route path="/" element={<MainPage />} />
                     <Route path="/:param" element={<SearchPage />} />
                 </Routes>
